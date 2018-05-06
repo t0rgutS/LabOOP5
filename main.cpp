@@ -49,7 +49,8 @@ TempListDD<type>::TempListDD() {
 
 template<class type>
 TempListDD<type>::~TempListDD() {
-    delList();
+    if(head)
+        delList();
 }
 
 template<class type>
@@ -112,7 +113,7 @@ void TempListDD<type>::delList() {
             delete p;
         }
         tail = 0;
-        printf("Очистка списка завершена.");
+        printf("Очистка списка завершена.\n");
     } else
         printf("Список пуст.\n");
 }
@@ -230,6 +231,7 @@ void menu(t *arg, TempListDD<t> inList) {
                 inList.delList();
         }
     } while (key != 'b');
+    delete arg;
 }
 
 int main() {
